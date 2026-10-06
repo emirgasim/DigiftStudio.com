@@ -26,7 +26,8 @@ function productSlug(title,id){
 }
 
 function productUrl(product){
-  return "/products/"+encodeURIComponent(product.listing_id)+"/";
+  if(product&&product.url)return product.url;
+  return "https://www.etsy.com/listing/"+encodeURIComponent(product.listing_id);
 }
 
 function categoryFor(product){
