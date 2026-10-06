@@ -26,7 +26,7 @@ function productSlug(title,id){
 }
 
 function productUrl(product){
-  return "/products/"+encodeURIComponent(product.listing_id)+"/"+productSlug(product.title,product.listing_id)+"/";
+  return "/products/"+encodeURIComponent(product.listing_id)+"/";
 }
 
 function categoryFor(product){
