@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://digiftstudio.com/sitemap.xml
+# The live sitemap is generated dynamically at /sitemap.xml.
