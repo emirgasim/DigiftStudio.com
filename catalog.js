@@ -39,7 +39,7 @@ function esc(v){
 }
 
 async function fetchCatalog(url){
-  const response=await fetch(url,{headers:{"Accept":"application/json","Cache-Control":"no-cache"}});
+  const response=await fetch(url,{method:"GET",mode:"cors",cache:"no-store",headers:{"Accept":"application/json"}});
   const data=await response.json();
   if(!response.ok||!data.success)throw new Error(data.error||("Catalog request failed: "+response.status));
   return data;
@@ -47,7 +47,7 @@ async function fetchCatalog(url){
 
 async function loadCatalog(){
   let lastError;
-  for(const url of [DIGIFT_CATALOG_API,DIGIFT_MANAGER_CATALOG_API]){
+  for(const url of [DIGIFT_MANAGER_CATALOG_API,DIGIFT_CATALOG_API]){
     try{
       const data=await fetchCatalog(url);
       return data;
