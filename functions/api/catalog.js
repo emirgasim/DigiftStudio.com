@@ -1,4 +1,4 @@
-const WORKER_URL="https://digiftstudio-com.qasimm2012.workers.dev/api/catalog";
+const WORKER_URL="https://digift-manager.qasimm2012.workers.dev/api/catalog";
 
 export async function onRequestGet(context){
   try{
