@@ -1,6 +1,6 @@
 export async function onRequestGet(context){
  const origin=new URL(context.request.url).origin;
- const worker="https://digift-manager.qasimm2012.workers.dev/api/catalog";
+ const worker="https://digiftstudio-com.qasimm2012.workers.dev/api/catalog";
  try{
   const response=await fetch(worker,{headers:{"Accept":"application/json"}});
   if(!response.ok)throw new Error("catalog");
