@@ -31,15 +31,7 @@ function productUrl(product){
 }
 
 function categoryFor(product){
-  const text=(String(product.title||"")+" "+(product.tags||[]).join(" ")+" "+String(product.description||"")).toLowerCase();
-  if(/halloween|spooky|gothic|masquerade|vampire/.test(text))return "Halloween";
-  if(/wedding|bridal|engagement|save the date|bride/.test(text))return "Wedding";
-  if(/birthday|party|celebration/.test(text))return "Birthday";
-  if(/baby shower|baby|gender reveal|baptism/.test(text))return "Baby & Family";
-  if(/love|romance|anniversary|valentine|apology|couple|proposal/.test(text))return "Love & Romance";
-  if(/canva|template|branding|social media|instagram/.test(text))return "Templates";
-  if(/invitation|invite|evite/.test(text))return "Digital Invitations";
-  return "Digital Gifts";
+  return String(product&&product.shop_section_title||"").trim();
 }
 
 function esc(v){
@@ -86,7 +78,7 @@ function renderCard(product){
   const image=firstImage(product);
   const href=productUrl(product);
   const cat=categoryFor(product);
-  return '<article class="product-card"><a class="product-media" href="'+href+'">'+(image?'<img src="'+esc(image)+'" alt="'+esc(product.title)+'" loading="lazy" decoding="async" referrerpolicy="no-referrer">':'<div class="media-placeholder">DIGIFT</div>')+'</a><div class="product-info"><p class="product-category">'+esc(cat)+'</p><h3><a href="'+href+'">'+esc(product.title)+'</a></h3><div class="product-bottom"><span>'+money(product.price,product.currency_code)+'</span><a class="product-link" href="'+href+'">View →</a></div></div></article>';
+  return '<article class="product-card"><a class="product-media" href="'+href+'">'+(image?'<img src="'+esc(image)+'" alt="'+esc(product.title)+'" loading="lazy" decoding="async" referrerpolicy="no-referrer">':'<div class="media-placeholder">DIGIFT</div>')+'</a><div class="product-info"><p class="product-category"'+(cat?'':' style="display:none"')+'>'+esc(cat)+'</p><h3><a href="'+href+'">'+esc(product.title)+'</a></h3><div class="product-bottom"><span>'+money(product.price,product.currency_code)+'</span><a class="product-link" href="'+href+'">View →</a></div></div></article>';
 }
 
 window.DigiftCatalog={loadCatalog,mountCatalog,categoryFor,productSlug,productUrl,firstImage,money,esc};
