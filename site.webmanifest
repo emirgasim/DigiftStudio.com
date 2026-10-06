@@ -1,0 +1,9 @@
+{
+  "name":"Digift Studio",
+  "short_name":"Digift",
+  "start_url":"/",
+  "display":"standalone",
+  "background_color":"#0d0b0f",
+  "theme_color":"#0d0b0f",
+  "description":"Personalized digital invitations, gifts and interactive experiences."
+}
