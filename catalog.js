@@ -2,7 +2,14 @@ const DIGIFT_CATALOG_API="/api/catalog";
 const DIGIFT_MANAGER_CATALOG_API="https://digift-manager.qasimm2012.workers.dev/api/catalog";
 
 function money(value,currency="USD"){
-  const amount=typeof value==="object"&&value?Number(value.amount||0)/Math.pow(10,Number(value.divisor||2)):Number(value||0);
+  let amount=0;
+  if(value&&typeof value==="object"){
+    const raw=Number(value.amount),divisor=Number(value.divisor);
+    if(Number.isFinite(raw)&&Number.isFinite(divisor)&&divisor>0)amount=raw/divisor;
+  }else{
+    amount=Number(value);
+  }
+  if(!Number.isFinite(amount))amount=0;
   try{return new Intl.NumberFormat(undefined,{style:"currency",currency:currency||"USD"}).format(amount)}catch{return amount.toFixed(2)}
 }
 
