@@ -1,4 +1,4 @@
-const WORKER_URL="https://digift-manager.qasimm2012.workers.dev/api/catalog";
+const WORKER_URL="https://digiftstudio-com.qasimm2012.workers.dev/api/catalog";
 
 function esc(v){return String(v??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;")}
 function imageOf(p){const a=Array.isArray(p.images)?p.images:[];return a.find(x=>x.url_fullxfull)?.url_fullxfull||a.find(x=>x.url_570xN)?.url_570xN||a.find(x=>x.url_170x135)?.url_170x135||""}
